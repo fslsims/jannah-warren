@@ -1,13 +1,14 @@
 import streamlit as st
 import google.generativeai as genai
 
-# جلب المفتاح بأمان من Secrets
+# جلب المفتاح بأمان
 try:
     api_key = st.secrets["GEMINI_API_KEY"]
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
+    # استخدام الموديل بالاسم الصحيح والمباشر
+    model = genai.GenerativeModel('gemini-1.5-flash')
 except Exception as e:
-    st.error("خطأ: لم يتم العثور على مفتاح Gemini في Secrets.")
+    st.error(f"حدث خطأ في الإعدادات: {e}")
     st.stop()
 
 st.title("🏛️ جنة وارن بافيت (النسخة الذكية)")
