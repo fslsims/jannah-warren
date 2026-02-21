@@ -5,7 +5,7 @@ import google.generativeai as genai
 try:
     api_key = st.secrets["GEMINI_API_KEY"]
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-pro')
 except Exception as e:
     st.error("خطأ: لم يتم العثور على مفتاح Gemini في Secrets.")
     st.stop()
